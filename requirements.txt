@@ -5,7 +5,7 @@ kvsqlite
 python-dotenv
 aiohttp
 yt-dlp
-shazamio
+shazamio==0.4.0
 deep-translator
 pillow
 psutil
