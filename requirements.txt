@@ -2,7 +2,6 @@ numpy==1.26.4 --only-binary=:all:
 pyrogram==2.0.106
 tgcrypto==1.2.5
 redis
-sqlitedict
 python-dotenv
 aiohttp
 yt-dlp
