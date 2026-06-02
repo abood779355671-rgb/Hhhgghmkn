@@ -85,6 +85,6 @@ import os as _os
 _os.makedirs("data", exist_ok=True)
 _os.makedirs("downloads", exist_ok=True)
 
-from kvsqlite.sync import Client as _DB
-ytdb = _DB(cfg.YOUTUBE_DB_PATH)
-sounddb = _DB(cfg.SOUND_DB_PATH)
+from sqlitedict import SqliteDict
+ytdb = SqliteDict(cfg.YOUTUBE_DB_PATH, autocommit=True)
+sounddb = SqliteDict(cfg.SOUND_DB_PATH, autocommit=True)
