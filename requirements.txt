@@ -19,7 +19,6 @@ pydub
 youtube-search
 pytube
 mutagen
-wget
 pytio
 py-cpuinfo
 SpeechRecognition
