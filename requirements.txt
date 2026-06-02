@@ -2,7 +2,7 @@ numpy==1.26.4 --only-binary=:all:
 pyrogram==2.0.106
 tgcrypto==1.2.5
 redis
-kvsqlite
+kvsqlite==0.2.1 --only-binary=:all:
 python-dotenv
 aiohttp
 yt-dlp
