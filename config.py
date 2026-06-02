@@ -1,4 +1,7 @@
 import os
+import json
+import sqlite3
+import threading
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -85,6 +88,13 @@ import os as _os
 _os.makedirs("data", exist_ok=True)
 _os.makedirs("downloads", exist_ok=True)
 
-from sqlitedict import SqliteDict
-ytdb = SqliteDict(cfg.YOUTUBE_DB_PATH, autocommit=True)
-sounddb = SqliteDict(cfg.SOUND_DB_PATH, autocommit=True)
+_lock2 = threading.Lock()
+
+def _simple_db(path):
+    c = sqlite3.connect(path, check_same_thread=False)
+    c.execute("CREATE TABLE IF NOT EXISTS kv (key TEXT PRIMARY KEY, value TEXT)")
+    c.commit()
+    return c
+
+ytdb = _simple_db(cfg.YOUTUBE_DB_PATH)
+sounddb = _simple_db(cfg.SOUND_DB_PATH)
